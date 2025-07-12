@@ -79,29 +79,18 @@ const Avatar = dynamic<AvatarProps>(
         <div
           className={`flex items-center justify-center rounded-full transition-all duration-300 ${hasActiveTool ? 'h-20 w-20' : 'h-28 w-28'}`}
         >
-          <div
+            <div
             className="relative cursor-pointer"
+            style={{ cursor: 'pointer' }}
             onClick={() => (window.location.href = '/')}
-          >
-            {isIOS() ? (
-              <img
-                src="/landing-memojis.png"
-                alt="iOS avatar"
-                className="h-full w-full scale-[1.8] object-contain"
-              />
-            ) : (
-              <video
-                ref={videoRef}
-                className="h-full w-full scale-[1.8] object-contain"
-                muted
-                playsInline
-                loop
-              >
-                <source src="/final_memojis.webm" type="video/webm" />
-                <source src="/final_memojis_ios.mp4" type="video/mp4" />
-              </video>
-            )}
-          </div>
+            >
+            <img
+              src="/avatar-landing.png"
+              alt="avatar"
+              className="h-full w-full scale-[0.5] object-contain"
+              style={{ cursor: 'pointer' }}
+            />
+            </div>
         </div>
       );
     }),
@@ -288,9 +277,9 @@ const Chat = () => {
         <div className="">
           <GithubButton
           animationDuration={1.5}
-          label="Star"
+          label="Github"
           size={'sm'}
-          repoUrl="https://github.com/toukoum/portfolio"
+          repoUrl="https://github.com/kehuanW"
         />
         </div>
       </div>
@@ -393,14 +382,7 @@ const Chat = () => {
             />
           </div>
         </div>
-        <a
-          href="https://x.com/toukoumcode"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="fixed right-3 bottom-0 z-10 mb-4 hidden cursor-pointer items-center gap-2 rounded-xl px-4 py-2 text-sm hover:underline md:block"
-        >
-          @toukoum
-        </a>
+
       </div>
     </div>
   );

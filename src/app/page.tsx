@@ -64,20 +64,20 @@ export default function Home() {
   useEffect(() => {
     // Précharger les assets du chat en arrière-plan
     const img = new window.Image();
-    img.src = '/landing-memojis.png';
+    img.src = '/avatar-landing.png';
 
     // Précharger les vidéos aussi
-    const linkWebm = document.createElement('link');
-    linkWebm.rel = 'preload'; // Note: prefetch au lieu de preload
-    linkWebm.as = 'video';
-    linkWebm.href = '/final_memojis.webm';
-    document.head.appendChild(linkWebm);
+    // const linkWebm = document.createElement('link');
+    // linkWebm.rel = 'preload'; // Note: prefetch au lieu de preload
+    // linkWebm.as = 'video';
+    // linkWebm.href = '/final_memojis.webm';
+    // document.head.appendChild(linkWebm);
 
-    const linkMp4 = document.createElement('link');
-    linkMp4.rel = 'prefetch';
-    linkMp4.as = 'video';
-    linkMp4.href = '/final_memojis_ios.mp4';
-    document.head.appendChild(linkMp4);
+    // const linkMp4 = document.createElement('link');
+    // linkMp4.rel = 'prefetch';
+    // linkMp4.as = 'video';
+    // linkMp4.href = '/final_memojis_ios.mp4';
+    // document.head.appendChild(linkMp4);
   }, []);
 
   return (
@@ -88,7 +88,7 @@ export default function Home() {
           className="hidden bg-gradient-to-b from-neutral-500/10 to-neutral-500/0 bg-clip-text text-[10rem] leading-none font-black text-transparent select-none sm:block lg:text-[16rem]"
           style={{ marginBottom: '-2.5rem' }}
         >
-          Toukoum
+          Aria Wang
         </div>
       </div>
 
@@ -97,9 +97,9 @@ export default function Home() {
         <GithubButton
           //targetStars={68}
           animationDuration={1.5}
-          label="Star"
+          label="Github"
           size={'sm'}
-          repoUrl="https://github.com/toukoum/portfolio"
+          repoUrl="https://github.com/kehuanW"
         />
       </div>
 
@@ -124,27 +124,30 @@ export default function Home() {
         initial="hidden"
         animate="visible"
       >
-        <div className="z-100">
+        {/* <div className="z-100">
           <WelcomeModal />
-        </div>
+        </div> */}
 
         <h2 className="text-secondary-foreground mt-1 text-xl font-semibold md:text-2xl">
-          Hey, I'm Raphael 👋
+          Hey, I'm Aria 👋
         </h2>
-        <h1 className="text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl">
-          AI portfolio
-        </h1>
+        <p className="text-muted-foreground mt-2 max-w-2xl text-lg md:text-xl">
+          A full-stack software developer based in Adelaide, Australia.
+        </p>
+        <p className="text-muted-foreground mt-2 max-w-2xl text-lg md:text-xl">
+          Let's chat about tech, AI, or anything else on your mind!
+        </p>
       </motion.div>
 
       {/* centre memoji */}
-      <div className="relative z-10 h-52 w-48 overflow-hidden sm:h-72 sm:w-72">
+      <div className="relative z-10 aspect-[1/1.2] w-48 overflow-hidden sm:w-72">
         <Image
-          src="/landing-memojis.png"
+          src="/avatar-landing.png"
           alt="Hero memoji"
-          width={2000}
-          height={2000}
+          fill
           priority
-          className="translate-y-14 scale-[2] object-cover"
+          className="object-contain"
+          sizes="(max-width: 640px) 12rem, 18rem"
         />
       </div>
 

@@ -76,7 +76,6 @@ function GithubButton({
   transition,
   ...props
 }: GithubButtonProps) {
-  const [targetStars, setTargetStars] = useState<number | null>(null);
   const [currentStars, setCurrentStars] = useState(initialStars);
   const [isAnimating, setIsAnimating] = useState(false);
   const [starProgress, setStarProgress] = useState(filled ? 100 : 0);
@@ -97,20 +96,13 @@ function GithubButton({
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
 
-  // Fetch stars from GitHub API
-  useEffect(() => {
-    fetch('/api/github-stars')
-      .then((res) => res.json())
-      .then((data) => setTargetStars(data.stars));
-  }, []);
-
   const startAnimation = useCallback(() => {
-    if (isAnimating || hasAnimated || targetStars === null) return;
+    if (isAnimating || hasAnimated || initialStars === 0) return;
 
     setIsAnimating(true);
     const startTime = Date.now();
     const startValue = 0;
-    const endValue = targetStars;
+    const endValue = initialStars;
     const duration = animationDuration * 1000;
 
     const animate = () => {
@@ -139,7 +131,7 @@ function GithubButton({
   }, [
     isAnimating,
     hasAnimated,
-    targetStars,
+    initialStars,
     animationDuration,
     animationDelay,
   ]);
@@ -148,7 +140,7 @@ function GithubButton({
   const isInView = useInView(ref, inViewOptions);
 
   useEffect(() => {
-    if (targetStars === null) return;
+    if (initialStars === 0) return;
     if (useInViewTrigger) {
       if (isInView && !hasAnimated) {
         startAnimation();
@@ -162,7 +154,7 @@ function GithubButton({
     isInView,
     hasAnimated,
     startAnimation,
-    targetStars,
+    initialStars,
   ]);
 
   const navigateToRepo = () => {
@@ -226,7 +218,7 @@ function GithubButton({
 
       <span>{label}</span>
 
-      <div className="relative inline-flex shrink-0">
+      {/* <div className="relative inline-flex shrink-0">
         <Star
           className="fill-muted-foreground text-muted-foreground"
           aria-hidden="true"
@@ -239,9 +231,9 @@ function GithubButton({
             clipPath: `inset(${100 - starProgress}% 0 0 0)`,
           }}
         />
-      </div>
+      </div> */}
 
-      <div
+      {/* <div
         className={cn(
           'relative flex flex-col overflow-hidden font-semibold',
           starsClass
@@ -261,10 +253,10 @@ function GithubButton({
         </motion.div>
         {fixedWidth && (
           <span className="h-0 overflow-hidden tabular-nums opacity-0">
-            {targetStars !== null ? formatNumber(targetStars) : ''}
+            {formatNumber(initialStars)}
           </span>
         )}
-      </div>
+      </div> */}
     </button>
   );
 }

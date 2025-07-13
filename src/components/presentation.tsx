@@ -12,7 +12,7 @@ export function Presentation() {
     // Add a newline character after the emoji
     description:
       "Hey 👋\nI'm Aria. I'm a full-stack developer working at Art of Logic in Mawson Lakes. ",
-    src: '/profil-raph.png',
+    src: '/profile_head.png',
     fallbackSrc:
       'https://images.unsplash.com/photo-1610216705422-caa3fcb6d158?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3',
   };

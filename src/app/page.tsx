@@ -112,7 +112,7 @@ export default function Home() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
             <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
           </span>
-          need an intern?
+          Open to new opportunities
         </button>
       </div>
 
@@ -125,7 +125,7 @@ export default function Home() {
       >
 
         <h2 className="text-secondary-foreground mt-1 text-xl font-semibold md:text-2xl">
-          Hey, I'm Aria 👋
+          Hello, I'm Aria 👋
         </h2>
         <p className="text-muted-foreground mt-2 max-w-2xl text-lg md:text-xl">
           A full-stack software developer based in Adelaide, Australia.

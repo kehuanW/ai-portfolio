@@ -1,6 +1,6 @@
 ![image](assets/readme-photo.png)
  
-# World's first AI portfolio 🤖✨  
+# AI portfolio 🤖✨  
 
 **Static portfolios are dead.**  
 So I built [toukoum.fr](https://toukoum.fr).
